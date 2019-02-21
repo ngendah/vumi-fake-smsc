@@ -1,0 +1,3 @@
+transport_name: smpp_transport
+url: http://app:8080
+event_url: http://app:8080

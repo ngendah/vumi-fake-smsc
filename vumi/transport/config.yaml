@@ -1,0 +1,5 @@
+transport_name: smpp_transport
+system_id: smppclient1
+password: password
+host: smsc
+port: 2775

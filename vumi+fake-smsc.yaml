@@ -1,0 +1,29 @@
+version: "3"
+services:
+  smsc:
+    build:
+      context: ./smsc
+    ports:
+      - "8888:88"
+  rabbitmq:
+    image: rabbitmq:3.7.9-alpine
+  vumi-t:
+    build:
+      context: ./vumi/transport
+    environment:
+      - AMQP_HOST=rabbitmq
+    depends_on:
+      - smsc
+      - rabbitmq
+  vumi-r:
+    build:
+      context: vumi/http_relay
+    environment:
+      - AMQP_HOST=rabbitmq
+    depends_on:
+      - vumi-t
+  app:
+    build:
+      context: app
+    depends_on:
+      - vumi-r
