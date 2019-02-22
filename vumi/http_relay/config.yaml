@@ -1,0 +1,5 @@
+transport_name: smpp_transport
+url: http://app:8080
+redis_manager:
+  host: <redis_host>
+  port: <redis_port>
