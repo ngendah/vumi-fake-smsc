@@ -3,3 +3,6 @@ system_id: smppclient1
 password: password
 host: smsc
 port: 2775
+redis_manager:
+  host: <redis_host>
+  port: <redis_port>

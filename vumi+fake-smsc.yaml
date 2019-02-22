@@ -2,24 +2,31 @@ version: "3"
 services:
   smsc:
     build:
-      context: ./smsc
+      context: smsc
     ports:
       - "8888:88"
   rabbitmq:
-    image: rabbitmq:3.7.9-alpine
+    image: rabbitmq:3.7-management-alpine
+    ports:
+      - "9000:15672"
+  redis:
+    image: redis:alpine
   vumi-t:
     build:
-      context: ./vumi/transport
+      context: vumi/transport
     environment:
       - AMQP_HOST=rabbitmq
+      - REDIS_HOST=redis
     depends_on:
       - smsc
       - rabbitmq
+      - redis
   vumi-r:
     build:
       context: vumi/http_relay
     environment:
       - AMQP_HOST=rabbitmq
+      - REDIS_HOST=redis
     depends_on:
       - vumi-t
   app:
