@@ -1,0 +1,8 @@
+language: python
+services: docker
+
+install:
+  - docker-compose -f vumi+fake-smsc.yaml build
+
+script:
+  - python -c "assert(7==`docker images | wc -l`)"
