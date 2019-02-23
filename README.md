@@ -1,6 +1,6 @@
 # Example app using Vumi + Fake SMSC
 
-[userguide](https://vumi.readthedocs.io/en/latest/first-smpp-bind.html)
+[userguide](https://vumi.readthedocs.io/en/latest)
 
 ## Running
 
@@ -9,12 +9,12 @@
 2. Build and run the app
 
 ```
-$sudo docker-compose -f vumi+fake-smsc.yaml up --build
+$docker-compose -f vumi+fake-smsc.yaml up --build
 ```
 
 3. Test sending a message from the smsc,
 
-    * On the browser navigate to the url 'localhost:8888', this should open the fake smsc index page
+    * On the browser navigate to the url `localhost:9000`, this should open the fake smsc index page
     
     * Go to “Inject an MO message”.
     
@@ -25,4 +25,12 @@ $sudo docker-compose -f vumi+fake-smsc.yaml up --build
     
     * submit the message
      
-     * The app will echo the submitted message
+     * The app should echo, on the CLI, the submitted message
+
+## Debugging tools
+
+1. The CLI
+
+2. Rabbitmq management console available at `localhost:9005`
+
+3. Redis database browser available at `localhost:9010`
