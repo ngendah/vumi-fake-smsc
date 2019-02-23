@@ -4,13 +4,21 @@ services:
     build:
       context: smsc
     ports:
-      - "8888:88"
+      - "127.0.0.1:9000:88"
   rabbitmq:
     image: rabbitmq:3.7-management-alpine
     ports:
-      - "9000:15672"
+      - "127.0.0.1:9005:15672"
   redis:
     image: redis:alpine
+  redis-browser:
+    image: rediscommander/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=redis
+    ports:
+      - "127.0.0.1:9010:8081"
+    depends_on:
+      - redis
   vumi-t:
     build:
       context: vumi/transport

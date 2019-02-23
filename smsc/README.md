@@ -5,7 +5,7 @@
 ## Build
 
 ```
-$sudo docker build --tag=smsc .
+$docker build --tag=smsc .
 ```
 
 ## Running
@@ -21,13 +21,13 @@ On the browser navigate to `localhost:8888`
 Get container instance id for the running image smsc
 
 ```
-$sudo docker ps
+$docker ps
 ```
 
 Stop the container by its instance id
 
 ```
-$sudo docker stop <instance id>
+$docker stop <instance id>
 ```
 
 Run the container shell
@@ -46,10 +46,10 @@ Start smsc
 Get container instance id for the running image smsc
 
 ```
-$sudo docker ps
+$docker ps
 ```
 
 Attach to its shell
 ```
-$sudo docker exec -it <instance id> /bin/sh
+$docker exec -it <instance id> /bin/sh
 ```
