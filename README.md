@@ -1,5 +1,7 @@
 # Example app using Vumi + Fake SMSC
 
+[![Build Status](https://travis-ci.org/ngendah/vumi-fake-smsc.svg?branch=master)](https://travis-ci.org/ngendah/vumi-fake-smsc)
+
 [userguide](https://vumi.readthedocs.io/en/latest)
 
 ## Running
